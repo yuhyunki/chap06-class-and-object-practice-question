@@ -37,27 +37,30 @@ public class ShapeMenu {
 			
 			num = sc.nextInt();
 			sc.nextLine();
-
-			if(!(num == 3 || num == 4 || num == 9)) {
-				System.out.println("계산할 수 없는 도형입니다. 다시 입력하세요.");
-				continue;
-			} else if(num == 9) {
-				System.out.println("프로그램을 종료합니다.");
-				break;
-			} else if(num == 3) {
+			
+			switch(num) {
+			case 3:
 				System.out.println("도형의 높이를 입력하세요 : ");
 				double height = sc.nextDouble();
 				System.out.println("도형의 너비를 입력하세요 : ");
 				double width = sc.nextDouble();
 				ShapeDTO shape = new ShapeDTO(num, height, width);
 				triangleMenu(shape);
-			} else if(num == 4) {
+				continue;
+			case 4:
 				System.out.println("도형의 높이를 입력하세요 : ");
-				double height = sc.nextDouble();
+				double height2 = sc.nextDouble();
 				System.out.println("도형의 너비를 입력하세요 : ");
-				double width = sc.nextDouble();
-				ShapeDTO shape = new ShapeDTO(num, height, width);
-				squareMenu(shape);
+				double width2 = sc.nextDouble();
+				ShapeDTO shape2 = new ShapeDTO(num, height2, width2);
+				squareMenu(shape2);
+				continue;
+			case 9:
+				System.out.println("프로그램을 종료합니다.");
+				return;
+			default:
+				System.out.println("계산할 수 없는 도형입니다. 다시 입력하세요.");
+				continue;
 			}
 		}
 	}
